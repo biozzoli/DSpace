@@ -13,3 +13,7 @@
 @import "shared/dspace-bootstrap-tweaks";
 @import "../vendor/jquery-ui/themes/base/jquery-ui.css";
 @import "style";
+
+header .navbar-default {
+    background-color: #66a4e8 !important;
+}
