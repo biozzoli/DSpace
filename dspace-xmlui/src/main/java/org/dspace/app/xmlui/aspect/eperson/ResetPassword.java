@@ -58,6 +58,9 @@ public class ResetPassword extends AbstractDSpaceTransformer
     
     private static final Message T_error_invalid_password =
         message("xmlui.EPerson.ResetPassword.error_invalid_password");
+        
+    private static final Message T_error_invalid_password_rule =
+        message("xmlui.EPerson.ResetPassword.error_invalid_password_rule");    
     
     private static final Message T_confirm_password =
         message("xmlui.EPerson.ResetPassword.confirm_password");
@@ -126,6 +129,11 @@ public class ResetPassword extends AbstractDSpaceTransformer
        if (errors.contains("password"))
        {
            password.addError(T_error_invalid_password);
+       }
+       
+       if (errors.contains("password_confirm"))
+       {
+           password.addError(T_error_invalid_password_rule);
        }
        
        Field passwordConfirm = form.addItem().addPassword("password_confirm");

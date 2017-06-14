@@ -431,10 +431,15 @@ function updatePassword(eperson)
     }
     
     // No short passwords
-	if ( password.length() < 6) 
+	if ( password.length() < 10) 
 	{
 		return new Array("password");
 	}  
+	
+	if (!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{10,}$"))
+	{
+		return new Array("password_rule");		
+	}
     
     // No unconfirmed passwords
 	if (!password.equals(passwordConfirm)) 
